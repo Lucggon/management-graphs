@@ -1,0 +1,27 @@
+:host {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  display:flex;
+  min-height: 100px;
+  width: 50%;
+  justify-content: space-around;
+}
+mat-card {
+  width: 25%;
+  aspect-ratio: 1/1;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+mat-icon {
+  transform: scale(2);
+  color:#3498db;
+}
+
+mat-icon:hover {
+  transform: scale(3);
+}
