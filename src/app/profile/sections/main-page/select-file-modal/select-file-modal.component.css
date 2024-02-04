@@ -1,0 +1,40 @@
+
+.mat-card-container {
+ display:flex;
+  width: 50%;
+  justify-content: space-around;
+}
+
+.mat-card-container_file {
+  margin-top:15%;
+}
+
+
+mat-card {
+  width: 150px;
+  margin: 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+
+img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+
+mat-icon {
+  font-size: 24px;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  text-align: center; /* Mantiene la proporción de aspecto */
+}
+
+mat-card-footer {
+  text-align: center;
+}

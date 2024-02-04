@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>Select your data source</h1>
+<div class="mat-card-container">
+  <mat-card>
+    <div class="mat-card-containter_file">
+      <a [skipLocationChange]="true" [routerLink]="routerUploadCSV">
+        <img mat-card-image src="/assets/images/csv.png" alt="csv-icon" />
+      </a>
+    </div>
+    <mat-card-footer>csv</mat-card-footer>
+  </mat-card>
+  <mat-card>
+    <div class="mat-card-container_file">
+      <a [skipLocationChange]="true" [routerLink]="routerCreateEmpty">
+        <mat-icon fontIcon="add_circle"></mat-icon>
+      </a>
+    </div>
+    <mat-card-footer>empty data</mat-card-footer>
+  </mat-card>
+</div>
