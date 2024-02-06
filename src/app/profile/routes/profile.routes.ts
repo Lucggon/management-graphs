@@ -4,7 +4,7 @@ import { Component } from "@angular/core";
 import { GraphComponent } from "../sections/graph/graph.component";
 
 export const profileRoutes:Route[] = [
-  { path: '', component: MainPageComponent},
+    {path: '', component: MainPageComponent},
     {path: 'add', component:GraphComponent},
     {path: 'list', component: MainPageComponent}
-  ]
+];

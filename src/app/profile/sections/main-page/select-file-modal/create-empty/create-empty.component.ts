@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { MatChipEditedEvent, MatChipInputEvent } from '@angular/material/chips';
 
 @Component({
   selector: 'app-create-empty',
@@ -14,17 +15,11 @@ export class CreateEmptyComponent implements OnInit {
   ngOnInit(): void {
       this.createEmptyForm = this.fb.group({
         name: '',
-        columns: this.fb.array([this.buildColumnName])
+        columns: ['']
       })
   }
 
-  get columns(): FormArray {
-    return this.createEmptyForm.get('columns') as FormArray;
-  }
-
-  buildColumnName(): FormGroup {
-      return this.fb.group({
-        column: ''
-      })
+  get columns(): Array<string> {
+    return this.createEmptyForm.get('columns')?.value
   }
 }

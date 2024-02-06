@@ -10,13 +10,6 @@
       <mat-label>Name:</mat-label>
       <input matInput formControlName="name"/>
     </mat-form-field>
-    <div formArrayName="columns">
-      <div [formGroupName]="i" *ngFor="let column of columns.controls; let i = index">
-        <mat-form-field>
-          <mat-label>Name:</mat-label>
-          <input matInput formControlName="column"/>
-        </mat-form-field>
-      </div>
-    </div>
+    <app-chips-inputs formControlName="columns" [elements]="columns"></app-chips-inputs>
   </form>
 </div>
