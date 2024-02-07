@@ -11,6 +11,7 @@ import { UploadCsvComponent } from './sections/main-page/select-file-modal/uploa
 import { CreateEmptyComponent } from './sections/main-page/select-file-modal/create-empty/create-empty.component';
 import { SelectFileModalInit } from './sections/main-page/select-file-modal/select-file-modal-init';
 import { ReactiveFormsModule } from '@angular/forms';
+import { GraphEditorComponent } from './sections/graph/graph-editor/graph-editor.component';
 
 
 
@@ -22,6 +23,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     SelectFileModalComponent,
     UploadCsvComponent,
     CreateEmptyComponent,
+    GraphEditorComponent,
   ],
   imports: [
     CommonModule,

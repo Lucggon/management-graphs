@@ -1,13 +1,14 @@
-import { Component, Input, forwardRef } from '@angular/core';
+import { Component, Input, ViewEncapsulation, forwardRef } from '@angular/core';
 import { MatChipEditedEvent, MatChipInputEvent } from '@angular/material/chips';
 import { COMMA, ENTER, T } from '@angular/cdk/keycodes';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { EmptyControlValueAccessor } from '../../empty-control-value-accesor';
 
 @Component({
   selector: 'app-chips-inputs',
   templateUrl: './chips-inputs.component.html',
   styleUrls: ['./chips-inputs.component.css'],
-   providers: [
+  providers: [
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => ChipsInputsComponent),
@@ -15,22 +16,16 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
     },
   ],
 })
-export class ChipsInputsComponent<T extends Array< string >> implements ControlValueAccessor  {
-
-
-  onChange: any = () => {};
-  onTouched: any = () => {};
-
+export class ChipsInputsComponent<T extends Array< string >> extends EmptyControlValueAccessor  {
+  readonly separatorKeysCodes = [ENTER, COMMA] as const;
   @Input() className: string = '';
   @Input() labelName: string = '';
   @Input() elements!: T;
   @Input() formControlName!: string;
 
-  addOnBlur = true;
-  readonly separatorKeysCodes = [ENTER, COMMA] as const;
 
-  writeValue(event: MatChipInputEvent): void {
-    if(event) {
+
+  add(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();
 
     // Add our element
@@ -41,7 +36,6 @@ export class ChipsInputsComponent<T extends Array< string >> implements ControlV
     // Clear the input value
     event.chipInput!.clear();
   }
-  }
 
   remove(element: string ): void {
     const index = this.elements.indexOf(element);
@@ -51,13 +45,7 @@ export class ChipsInputsComponent<T extends Array< string >> implements ControlV
     }
   }
 
-   registerOnChange(fn: any): void {
-    this.onChange = fn;
-  }
 
-  registerOnTouched(fn: any): void {
-    this.onTouched = fn;
-  }
 
   edit(element:  string , event: MatChipEditedEvent): void {
     const value = (event.value || '').trim();

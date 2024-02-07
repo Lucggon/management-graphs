@@ -1,0 +1,23 @@
+<div class="sidebar-container">
+  <div class="select-columns">
+    <mat-chip-listbox class="mat-mdc-chip-set-stacked" [multiple]="true">
+      <mat-chip-option *ngFor="let column of columns">
+        {{ column }}
+      </mat-chip-option>
+         <input id="add-column" class="mat-mdc-chip" (blur)="addColumn($event)">
+    </mat-chip-listbox>
+  </div>
+  <div class="button-container">
+    <button mat-button color="primary">
+      <mat-icon fontIcon="add"></mat-icon> Agregar
+    </button>
+    <button mat-button color="primary">
+      <mat-icon fontIcon="hide_image"></mat-icon> Ocultar
+    </button>
+    <div class="danger-button">
+      <button mat-button color="warn">
+        <mat-icon fontIcon="recycling"></mat-icon> Eliminar
+      </button>
+    </div>
+  </div>
+</div>
