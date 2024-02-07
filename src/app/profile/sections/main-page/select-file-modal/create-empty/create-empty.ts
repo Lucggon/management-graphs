@@ -1,4 +1,4 @@
-export type emptyData = {
-  name:string;
-  columns: string[] | string;
-}
+export type EmptyData = {
+  name: string;
+  columns: string[];
+};

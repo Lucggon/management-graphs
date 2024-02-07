@@ -5,18 +5,12 @@
   <p>back to select data source</p>
 </h1>
 <div class="mat-card-container">
-  <form [formGroup]="createEmptyForm">
+  <form [formGroup]="createEmptyForm" (ngSubmit)="onSubmit()">
     <mat-form-field>
       <mat-label>Name:</mat-label>
       <input matInput formControlName="name"/>
     </mat-form-field>
-    <div formArrayName="columns">
-      <div [formGroupName]="i" *ngFor="let column of columns.controls; let i = index">
-        <mat-form-field>
-          <mat-label>Name:</mat-label>
-          <input matInput formControlName="column"/>
-        </mat-form-field>
-      </div>
-    </div>
+    <app-chips-inputs formControlName="columns" [elements]="columns" labelName="Columns"></app-chips-inputs>
+     <button mat-button color="primary">Save</button>
   </form>
 </div>
