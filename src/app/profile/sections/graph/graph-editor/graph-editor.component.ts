@@ -20,6 +20,9 @@ export class GraphEditorComponent {
   }
 
   addColumn(event: any) {
-    console.log(event);
+    let column: string = event.target.value;
+    if (!this.columns.includes(column)) {
+      this.columns.push(column);
+    }
   }
 }

@@ -1,21 +1,26 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Subject, Subscription, filter, map } from 'rxjs';
+import {
+  BehaviorSubject,
+  Observable,
+  Subject,
+  Subscription,
+  filter,
+  map,
+} from 'rxjs';
 
 @Injectable()
 export class EventBusService {
   private subject = new BehaviorSubject<any>('');
 
-  on(event: Events, action: any): Subscription {
-    return this.subject
-      .pipe(
-        filter((e: EmitEvent) => {
-          return e.name === event;
-        }),
-        map((event: EmitEvent) => {
-          return event.value;
-        })
-      )
-      .subscribe(action);
+  on<T>(event: Events): Observable<T> {
+    return this.subject.pipe(
+      filter((e: EmitEvent) => {
+        return e.name === event;
+      }),
+      map((event: EmitEvent) => {
+        return event.value;
+      })
+    );
   }
 
   emit(event: EmitEvent) {
